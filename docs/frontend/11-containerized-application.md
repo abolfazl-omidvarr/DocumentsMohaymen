@@ -111,14 +111,14 @@ services:
 برای غیرفعال کردن کانتیر از دستور `docker-compose down` استفاده می‌کنیم.  
 برای اجرای کانتیر در پس‌زمنیه یا حالت detach mode از دستور `docker-compose up -d` استفاده می‌کنیم.  
 
-## محیط Production:
+## محیط Production
 برای dockerize کردن یک اپلیکیشن React به همراه Nginx در محیط Production، می‌توان مراحل زیر را دنبال کرد
 ![produnctionReact](./images/nginxProductionFlow.png)
 
-### ساخت اپلیکیشن React:
+### ساخت اپلیکیشن React
  می‌توان از`Vite` یا هر ابزار دیگری برای ساخت یک اپلیکیشن React استفاده کرد. در این آموزش از ابزار vite برای ساخت اپلیکیشن استفاده شده است. اما ابزار‌های دیگر نیز تفاوت خاصی ندارند. ممکن است پوشه‌ای که فایل‌‌های build شده در آن قرار می‌گیرند در ابزار‌های دیگر به جای dist به نام build ایجاد شوند. در این صورت باید dockerfile براساس این نکته اصلاح شوند.
  
-### کانفیگ Nginx:
+### کانفیگ Nginx
 نمونه کانفیگ nginx در ادامه ارائه گردیده است:
 ```deafult.conf
 server {
@@ -160,7 +160,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 ```
-### ایجاد فایل docker-compose.yml:
+### ایجاد فایل docker-compose.yml
 ```docker-compose.yml
 version: "3"
 services:
